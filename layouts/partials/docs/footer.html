@@ -1,27 +1,16 @@
-<div class="book-footer justify-between">
+<hr>
+<div style="font-size: .875rem;">
   {{ if .Site.IsMultiLingual }}
   {{ partial "docs/languages" . }}
   {{ end }}
 
-  {{ if and .GitInfo .Site.Params.BookRepo }}
-  {{ with .GitInfo }}
-  <div>
+  <p>{{ .Site.Params.Authorship }}</a>. 
+    {{ with .GitInfo }}
     {{ $date := .AuthorDate.Local.Format (default "January 2, 2006" $.Site.Params.BookDateFormat) }}
-    <a class="flex align-center" href="{{ $.Site.Params.BookRepo }}/commit/{{ .Hash }}" title='{{ i18n "Last modified by" }} {{ .AuthorName }} | {{ $date }}' target="_blank">
-      <img src="{{ "svg/calendar.svg" | relURL }}" class="book-icon" alt="Calendar" />
-      <span>{{ $date }}</span>
-    </a>
-  </div>
-  {{ end }}
-  {{ end }}
+      This page was last modified on {{ $date }}.
+    {{ end }}
+  </p>
 
-  {{ if and .File .Site.Params.BookRepo .Site.Params.BookEditPath }}
-  <div>
-    <a class="flex align-center" href="{{ .Site.Params.BookRepo }}/{{ .Site.Params.BookEditPath }}/{{ .File.Path }}" target="_blank">
-      <img src="{{ "svg/edit.svg" | relURL }}" class="book-icon" alt="Edit" />
-      <span>{{ i18n "Edit this page" }}</span>
-    </a>
-  </div>
-  {{ end }}
+  <p>© 2019, <a href="https://conjoint.online/">Conjoint.ly</a>, Sydney, Australia. ABN 56 616 169 021. For legal and data protection questions, please refer to <a href="https://conjoint.online/terms-and-conditions/">Terms and Conditions</a> and <a href="https://conjoint.online/privacy-policy/">Privacy Policy</a>.</p>
 
 </div>
