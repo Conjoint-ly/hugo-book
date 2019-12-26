@@ -37,6 +37,18 @@ ul.breadcrumb li a:hover {
   text-decoration: underline;
 }
 
+.breadcrumb li:first-child{
+    display:none;
+}
+
+.breadcrumb li:nth-child(2){
+    display:none;
+}
+
+.breadcrumb li:nth-child(3):before{
+    display:none;
+}
+
 .next-button{
   text-align: right;
   padding-right: 16px;
